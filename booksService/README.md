@@ -5,8 +5,11 @@
 ### Map components
 
 **Business requirement:**  Manage books
+
 **Functional:**  Add, update, remove
+
 **Data entities:** Books
+
 **Data autonomy:** None
 
 ### Technologies
