@@ -1,0 +1,12 @@
+﻿version: "latest"
+
+services: 
+  mongo:
+    image: mongo
+    container_name: mongoBooks
+    ports:
+      - 27017:27017
+    volumes: 
+      - mongodbdata:/data/db
+volumes: 
+  mongodbdata:
