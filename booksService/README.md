@@ -6,7 +6,7 @@
 
 **Business requirement:**  Manage books
 
-**Functional:**  Add, update, remove
+**Functional:**  Get, add, update, remove
 
 **Data entities:** Books
 
