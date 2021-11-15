@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "38b79c54-a11b-4f9f-af48-993cccdb14fa": {
+      "ProjectGuid": "38b79c54-a11b-4f9f-af48-993cccdb14fa",
+      "DisplayName": "libriManager",
+      "ColorIndex": 0
+    },
+    "b87fe3bb-b85f-42ea-a0c2-45771c5eef7e": {
+      "ProjectGuid": "b87fe3bb-b85f-42ea-a0c2-45771c5eef7e",
+      "DisplayName": "docker-compose",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
