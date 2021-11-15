@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksAPI", "BooksAPI\BooksAPI.csproj", "{05BF4F89-6EA0-4113-A823-DC9BBD068075}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{E82B24B6-0D74-4705-B1B7-CFFA664022A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05BF4F89-6EA0-4113-A823-DC9BBD068075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05BF4F89-6EA0-4113-A823-DC9BBD068075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05BF4F89-6EA0-4113-A823-DC9BBD068075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05BF4F89-6EA0-4113-A823-DC9BBD068075}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E82B24B6-0D74-4705-B1B7-CFFA664022A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E82B24B6-0D74-4705-B1B7-CFFA664022A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E82B24B6-0D74-4705-B1B7-CFFA664022A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E82B24B6-0D74-4705-B1B7-CFFA664022A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {815E858B-5DD9-4B0A-8EB9-C5C95F2B3298}
+	EndGlobalSection
+EndGlobal
