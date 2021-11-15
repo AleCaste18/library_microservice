@@ -16,5 +16,5 @@
 
 * Docker
 * ASP.NET Core Web API
-* MongoDB NoSQL
+* SQL Server
 * Swagger Open API
