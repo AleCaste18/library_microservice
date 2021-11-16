@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BooksAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20211115170314_AddNoteEntity")]
+    [Migration("20211116095358_AddNoteEntity")]
     partial class AddNoteEntity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

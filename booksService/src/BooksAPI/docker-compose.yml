@@ -6,11 +6,12 @@ services:
    environment:
     - ACCEPT_EULA=Y
     - SA_PASSWORD=1Secure*Password1
-   ports:
-      - 1433:1433
 
   booksapi:
     image: ${DOCKER_REGISTRY-}booksapi
+    ports:
+      - "1818:443"
+      - "1819:80"
     build:
       context: .
       dockerfile: Dockerfile

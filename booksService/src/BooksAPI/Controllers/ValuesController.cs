@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace BooksAPI.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class BooksController 
+    public class BooksController
     {
         private readonly AppDbContext _db;
 
-        public BooksController(AppDbContext db) 
+        public BooksController(AppDbContext db)
         {
-            _db = db; 
+            _db = db;
         }
 
         // GET: api/<BooksController>
         [HttpGet]
-        public async Task<IActionResult> Get() 
+        public async Task<IActionResult> Get()
         {
             var books = await _db.Books.ToListAsync();
             return new JsonResult(books);
@@ -27,7 +27,7 @@ namespace BooksAPI.Controllers
 
         // GET api/<BooksController>/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id) 
+        public async Task<IActionResult> Get(int id)
         {
             var book = await _db.Books.FirstOrDefaultAsync(b => b.Id == id);
             return new JsonResult(book);
@@ -35,7 +35,7 @@ namespace BooksAPI.Controllers
 
         // POST api/<BooksController>
         [HttpPost]
-       public async Task<IActionResult> Post(Book book) 
+        public async Task<IActionResult> Post(Book book)
         {
             _db.Books.Add(book);
             await _db.SaveChangesAsync();
@@ -44,10 +44,10 @@ namespace BooksAPI.Controllers
         }
 
         // PUT api/<BooksController>/5
-        [HttpPut]
-        public async Task <IActionResult> Put(int id, Book book)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, Book book)
         {
-            var existingBook = await _db.Books.FirstOrDefaultAsync(b =>b.Id == id);
+            var existingBook = await _db.Books.FirstOrDefaultAsync(b => b.Id == id);
             existingBook.Title = book.Title;
             existingBook.Category = book.Category;
             existingBook.Author = book.Author;
@@ -57,7 +57,7 @@ namespace BooksAPI.Controllers
         }
 
         // DELETE api/<BooksController>/5
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var book = await _db.Books.FirstOrDefaultAsync(b => b.Id == id);
