@@ -15,6 +15,6 @@
 ### Technologies
 
 * Docker
-* ASP.NET Core Web API
-* SQL Server
-* Swagger Open API
+* ASP.NET Core 6.0 Web API (with Entity Framework)
+* SQL Server 2019
+* Swagger Open API 3.0(JSON schema at https:localhost:1818/swagger/v1/swagger.json)
