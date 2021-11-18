@@ -1,6 +1,6 @@
 # Book Service
 
-![schema](img/books.png)
+![schema](img/customers.png)
 
 ### Map components
 
