@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c5dfa005-585a-4421-8e9f-e4cc7f9ba004": {
+      "ProjectGuid": "c5dfa005-585a-4421-8e9f-e4cc7f9ba004",
+      "DisplayName": "customersService",
+      "ColorIndex": 0
+    },
+    "3072ec63-33ba-4434-a957-5599036703e2": {
+      "ProjectGuid": "3072ec63-33ba-4434-a957-5599036703e2",
+      "DisplayName": "docker-compose",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
