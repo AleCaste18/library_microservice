@@ -10,6 +10,11 @@
       "ProjectGuid": "3072ec63-33ba-4434-a957-5599036703e2",
       "DisplayName": "docker-compose",
       "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "File esterni",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 2
