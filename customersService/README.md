@@ -1,4 +1,4 @@
-# Book Service
+# Customers Service
 
 ![schema](img/customers.png)
 
@@ -17,4 +17,4 @@
 * Docker
 * ASP.NET Core 6.0 Web API
 * MongoDB
-* Swagger Open API 3.0 (JSON schema at [https://localhost:1818/swagger/v1/swagger.json](https://localhost:1818/swagger/v1/swagger.json) or https://localhost:1819/swagger/v1/swagger.json>)
+* Swagger Open API 3.0
