@@ -16,5 +16,5 @@
 
 * Docker
 * ASP.NET Core 6.0 Web API
-* MongoDB
+* MongoDB Atlas Database
 * Swagger Open API 3.0
