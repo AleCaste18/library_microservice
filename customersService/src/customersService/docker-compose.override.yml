@@ -2,23 +2,13 @@ version: '3.4'
 
 services:
 
-  customersdb:
-   container_name: customersdb
-   restart: always
-   ports:
-        - "27017:27017"
-   volumes:
-        - ${WEBAPP_STORAGE_HOME}/site:/data/db
-
-  customersservice:
-    container_name: customersapi
-    environment:
+ customersservice:
+   container_name: customersapi
+   environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "DatabaseSettings:ConnectionString=mongodb://customersdb:27017"
-    depends_on:
-      - customersdb
-    volumes:
+   volumes:
       - ~/.aspnet/https:/root/.aspnet/https:ro
       - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
-    ports:
-      - "8000:80"
+   ports:
+      - "2828:443"
+      - "2829:80"

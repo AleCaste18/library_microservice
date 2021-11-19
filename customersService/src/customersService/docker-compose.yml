@@ -1,10 +1,8 @@
 version: '3.4'
 
 services:
-  customersdb:
-    image: mongo
 
-  customersservice:
+ customersservice:
     image: ${DOCKER_REGISTRY-}customersservice
     build:
       context: .

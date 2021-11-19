@@ -5,7 +5,7 @@
     <DockerTargetOS>Linux</DockerTargetOS>
     <ProjectGuid>3072ec63-33ba-4434-a957-5599036703e2</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
+    <DockerServiceUrl>{Scheme}://localhost:1717/swagger</DockerServiceUrl>
     <DockerServiceName>customersservice</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
