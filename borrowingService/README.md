@@ -1,6 +1,6 @@
-# Borrowings Service
+# Borrowing Service
 
-![schema](img/borrowings.png)
+![schema](img/borrowing.png)
 
 ### Map components
 
