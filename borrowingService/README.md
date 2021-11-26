@@ -15,6 +15,6 @@
 ### Technologies
 
 * Docker
-* ASP.NET Core 6.0 Web API (with Entity Framework)
+* ASP.NET Core 6.0 Web API
 * MongoDB
 * Swagger Open API 3.0 (JSON schema at)
