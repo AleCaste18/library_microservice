@@ -17,4 +17,4 @@
 * Docker
 * ASP.NET Core 6.0 Web API
 * MongoDB
-* Swagger Open API 3.0 (JSON schema at)
+* Swagger Open API 3.0 (Swagger Open API 3.0 (JSON schema at https://localhost:3838/swagger/v1/swagger.json or https://localhost:3839/swagger/v1/swagger.json>))
