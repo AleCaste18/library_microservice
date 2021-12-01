@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  borrowing-mongoDB:
+    image: mongo:latest
+    container_name: borrowingdb
+    environment:
+      #MONGO_INITDB_ROOT_USERNAME: root
+      #MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: borrowingdb
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data:/data/db
+
+  borrowing_service:
+    image: ${DOCKER_REGISTRY-}borrowingservice
+    container_name: borrowingapi
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+    ports:
+      - "3838:80"
+      - "3839:443"
+    volumes:
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    depends_on:
+      - borrowing_mongoDB
+
+
+
+volumes:
+ mongodb_data: {}

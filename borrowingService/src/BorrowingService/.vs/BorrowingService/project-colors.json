@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a15a29b8-8f62-4c23-a332-00d2c602bad4": {
+      "ProjectGuid": "a15a29b8-8f62-4c23-a332-00d2c602bad4",
+      "DisplayName": "BorrowingService",
+      "ColorIndex": 0
+    },
+    "c72f0b5e-3224-46e0-9811-28214f2f6dad": {
+      "ProjectGuid": "c72f0b5e-3224-46e0-9811-28214f2f6dad",
+      "DisplayName": "docker-compose",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
