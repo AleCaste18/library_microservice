@@ -10,9 +10,9 @@ namespace BooksAPI.Controllers
     [ApiController]
     public class BooksController
     {
-        private readonly AppDbContext _db;
-
-        public BooksController(AppDbContext db)
+        
+        private readonly AppDbContext _db; //Dependency injection
+        public BooksController(AppDbContext db)  //Dependency injection
         {
             _db = db;
         }

@@ -22,8 +22,9 @@ namespace BooksAPI
         {
             services.AddControllers();
 
-            services.AddDbContext<AppDbContext>(options => options
-                .UseSqlServer(Configuration.GetConnectionString("AppDbContext"),
+            //Registrazione della classe "AppDbContext"
+            services.AddDbContext<AppDbContext>(options => 
+              options.UseSqlServer(Configuration.GetConnectionString("AppDbContext"),
                 b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
 
             services.AddSwaggerGen();
