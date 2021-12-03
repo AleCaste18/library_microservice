@@ -1,0 +1,52 @@
+services:
+  booksservice:
+    build:
+      context: C:\Users\lino-\Desktop\src\BooksService
+      dockerfile: Dockerfile
+    depends_on:
+      db:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: booksservice
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 443
+      published: 1818
+      protocol: tcp
+    - mode: ingress
+      target: 80
+      published: 1819
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\lino-\.aspnet\https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\lino-\.microsoft\usersecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+  db:
+    container_name: BooksSQLdb
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: yourStrong(!)Password5
+    image: mcr.microsoft.com/mssql/server:2019-CU14-ubuntu-20.04
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 1433
+      published: 1433
+      protocol: tcp
+networks:
+  default:
+    name: dockercompose15945703221614067726_default

@@ -1,0 +1,30 @@
+services:
+  booksservice:
+    build:
+      context: C:\Users\lino-\Desktop\src\BooksService
+      dockerfile: Dockerfile
+    depends_on:
+      db:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: booksservice
+    ports:
+    - published: 1818
+      target: 443
+    - published: 1819
+      target: 80
+    volumes:
+    - C:\Users\lino-\.aspnet\https:/root/.aspnet/https:ro
+    - C:\Users\lino-\.microsoft\usersecrets:/root/.microsoft/usersecrets:ro
+  db:
+    container_name: BooksSQLdb
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: yourStrong(!)Password5
+    image: mcr.microsoft.com/mssql/server:2019-CU14-ubuntu-20.04
+    ports:
+    - published: 1433
+      target: 1433
+version: '3.4'
