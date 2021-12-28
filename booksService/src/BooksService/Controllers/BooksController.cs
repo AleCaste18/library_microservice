@@ -56,6 +56,19 @@ namespace BooksService.Controllers
             return new JsonResult("Somethign Went wrong") { StatusCode = 500 };
         }
 
+        // UPDATE api/<BooksController>/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateBook(Guid id, Book book) 
+        {
+            if (id != book.Id)
+                return BadRequest();
+
+            await _unitOfWork.Book.Upsert(book);
+            await _unitOfWork.CompleteAsync();
+
+            return NoContent();
+        }
+
         // DELETE api/<BooksController>/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBook(Guid id)
