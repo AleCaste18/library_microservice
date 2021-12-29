@@ -1,5 +1,6 @@
 using customersService.Data;
 using customersService.Data.Interfaces;
+using customersService.GraphQL;
 using customersService.Repository;
 using customersService.Repository.Interfaces;
 
@@ -13,6 +14,12 @@ builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.
+    AddGraphQLServer().
+    AddQueryType<Query>().
+    AddType<CustomerType>();
+
+
 
 var app = builder.Build();
 
@@ -26,5 +33,12 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseRouting();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapGraphQL("/api/graphql");
+});
 
 app.Run();

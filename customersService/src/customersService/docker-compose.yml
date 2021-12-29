@@ -7,7 +7,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: customersapi
+    container_name: customersAPP
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     volumes:
