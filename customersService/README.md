@@ -19,3 +19,8 @@
 * MongoDB Atlas Database
 * Swagger Open API 3.0
 * GraphQL API (GetAll and GetByID)
+
+### Test
+
+* Get
+* GetByID
