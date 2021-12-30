@@ -1,0 +1,31 @@
+services:
+  customersservice:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: customersAPP
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: customersservice
+    ports:
+    - mode: ingress
+      target: 443
+      published: 2828
+      protocol: tcp
+    - mode: ingress
+      target: 80
+      published: 2829
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\lino-\.aspnet\https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\lino-\.microsoft\usersecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true

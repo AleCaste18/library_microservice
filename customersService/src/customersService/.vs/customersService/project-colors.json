@@ -15,7 +15,27 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "File esterni",
       "ColorIndex": -1
+    },
+    "b72aa894-f163-46bd-8330-b9c5cf1a7b26": {
+      "ProjectGuid": "b72aa894-f163-46bd-8330-b9c5cf1a7b26",
+      "DisplayName": "customerAPI.test",
+      "ColorIndex": 2
+    },
+    "e5e1fc20-1db8-40dd-8cb0-dcb73f54d79e": {
+      "ProjectGuid": "e5e1fc20-1db8-40dd-8cb0-dcb73f54d79e",
+      "DisplayName": "customerServiceTest",
+      "ColorIndex": 3
+    },
+    "eb2b53b6-ed46-46ea-99c0-7eca966911f4": {
+      "ProjectGuid": "eb2b53b6-ed46-46ea-99c0-7eca966911f4",
+      "DisplayName": "CustomerControllerTest",
+      "ColorIndex": 4
+    },
+    "0ce5e2b4-6cc6-4f01-8620-f2a56325436a": {
+      "ProjectGuid": "0ce5e2b4-6cc6-4f01-8620-f2a56325436a",
+      "DisplayName": "customersServiceTest",
+      "ColorIndex": 5
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 6
 }

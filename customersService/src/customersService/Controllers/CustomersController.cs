@@ -15,8 +15,8 @@ namespace customersService.Controllers
 
         public CustomersController(ICustomerRepository repository, ILogger<CustomersController> logger)
         {
-            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _repository = repository;
+            _logger = logger;
         }
 
         [HttpGet]
