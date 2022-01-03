@@ -1,6 +1,0 @@
-services:
-  booksservice:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: booksservice
