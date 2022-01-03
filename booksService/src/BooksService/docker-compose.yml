@@ -11,7 +11,7 @@ services:
       context: .
       dockerfile: Dockerfile
     depends_on:
-     - db
+     - booksdb
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80  
@@ -32,5 +32,5 @@ services:
 
 volumes:
   sqlserver_data:
-    driver: local
     name: sqlserver_data
+  

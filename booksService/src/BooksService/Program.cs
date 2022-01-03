@@ -1,4 +1,4 @@
-using BooksService.Data;
+using booksService.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BooksService
+namespace booksService
 {
     public class Program
     {
@@ -26,7 +26,7 @@ namespace BooksService
             //We can't do that here though because we need the SQL Server Docker container to be running before we try to update it.
             try
             {
-                var dbContext = services.GetRequiredService<DBContext>();
+                var dbContext = services.GetRequiredService<BookContext>();
 
                 if (dbContext.Database.IsSqlServer())
                 {

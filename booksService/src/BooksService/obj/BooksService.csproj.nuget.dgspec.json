@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lino-\\Source\\Repos\\AleCaste18\\library_microservice\\booksService\\src\\BooksService\\BooksService.csproj": {}
+    "C:\\Users\\lino-\\Desktop\\library_microservice\\booksService\\src\\src library v2\\src\\booksService\\booksService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lino-\\Source\\Repos\\AleCaste18\\library_microservice\\booksService\\src\\BooksService\\BooksService.csproj": {
+    "C:\\Users\\lino-\\Desktop\\library_microservice\\booksService\\src\\src library v2\\src\\booksService\\booksService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lino-\\Source\\Repos\\AleCaste18\\library_microservice\\booksService\\src\\BooksService\\BooksService.csproj",
-        "projectName": "BooksService",
-        "projectPath": "C:\\Users\\lino-\\Source\\Repos\\AleCaste18\\library_microservice\\booksService\\src\\BooksService\\BooksService.csproj",
+        "projectUniqueName": "C:\\Users\\lino-\\Desktop\\library_microservice\\booksService\\src\\src library v2\\src\\booksService\\booksService.csproj",
+        "projectName": "booksService",
+        "projectPath": "C:\\Users\\lino-\\Desktop\\library_microservice\\booksService\\src\\src library v2\\src\\booksService\\booksService.csproj",
         "packagesPath": "C:\\Users\\lino-\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lino-\\Source\\Repos\\AleCaste18\\library_microservice\\booksService\\src\\BooksService\\obj\\",
+        "outputPath": "C:\\Users\\lino-\\Desktop\\library_microservice\\booksService\\src\\src library v2\\src\\booksService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lino-\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -42,23 +42,23 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.12, )"
+              "version": "[5.0.13, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.12, )"
+              "version": "[5.0.13, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.12, )"
+              "version": "[5.0.13, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.12, )"
+              "version": "[5.0.13, )"
             },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
@@ -66,7 +66,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[5.6.3, )"
             }
           },
           "imports": [

@@ -1,87 +1,77 @@
-﻿using BooksService.Configuration;
-using BooksService.Models;
+﻿using booksService.Business;
+using booksService.Business.Interfaces;
+using booksService.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
+using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
-namespace BooksService.Controllers
+namespace booksService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class BooksController : ControllerBase
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IBooksBusiness _booksBusiness;
+        private readonly ILogger<BooksController> _logger;
 
-        public BooksController(IUnitOfWork unitOfWork)
+        public BooksController(IBooksBusiness booksBusiness, ILogger<BooksController> logger)
         {
-            _unitOfWork = unitOfWork;
+            _booksBusiness = booksBusiness;
+            _logger = logger;
         }
 
-        // GET: api/<BooksController>
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetAll()
         {
-            var users = await _unitOfWork.Book.All();
-            return Ok(users);
+            // Just for demo of composite specifications
+            var posts = await _booksBusiness.GetAllAsync();
+            return Ok(posts);
         }
 
-        // GET api/<BooksController>/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetBook(Guid id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var item = await _unitOfWork.Book.GetById(id);
-
-            if (item == null)
-                return NotFound();
-
-            return Ok(item);
+            var books = await _booksBusiness.GetByIdAsync(id);
+            return Ok(books);
         }
 
-        // POST api/<BooksController>
         [HttpPost]
-        public async Task<IActionResult> CreateBook(Book book)
+        public async Task<IActionResult> Create([FromBody]Book book)
         {
-            if (ModelState.IsValid)
+            
+            if (book == null) 
             {
-                book.Id = Guid.NewGuid();
-
-                await _unitOfWork.Book.Add(book);
-                await _unitOfWork.CompleteAsync();
-
-                return CreatedAtAction("GetBook", new { book.Id }, book);
+                return BadRequest();
             }
 
-            return new JsonResult("Somethign Went wrong") { StatusCode = 500 };
+            await _booksBusiness.CreateAsync(book);
+            return Ok();     
+
         }
 
-        // UPDATE api/<BooksController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateBook(Guid id, Book book) 
+        public async Task<IActionResult> UpdateBook(int id, Book book)
         {
             if (id != book.Id)
                 return BadRequest();
 
-            await _unitOfWork.Book.Upsert(book);
-            await _unitOfWork.CompleteAsync();
-
+            await _booksBusiness.UpdateAsync(book);
             return NoContent();
         }
 
-        // DELETE api/<BooksController>/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteBook(Guid id)
-        {
-            var item = await _unitOfWork.Book.GetById(id);
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var item = await _booksBusiness.GetByIdAsync(id);
             if (item == null)
                 return BadRequest();
 
-            await _unitOfWork.Book.Delete(id);
-            await _unitOfWork.CompleteAsync();
-
+            await _booksBusiness.DeleteAsync(id);
             return Ok(item);
         }
     }
+
+    
 }

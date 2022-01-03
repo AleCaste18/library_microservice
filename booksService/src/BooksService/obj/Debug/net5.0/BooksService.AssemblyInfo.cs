@@ -11,13 +11,13 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("ef7319a8-3e8f-44a4-a296-118ee0c89aaa")]
-[assembly: System.Reflection.AssemblyCompanyAttribute("BooksService")]
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("5304c94d-c0cc-4c3c-9981-922f4d970dfe")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("booksService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("BooksService")]
-[assembly: System.Reflection.AssemblyTitleAttribute("BooksService")]
+[assembly: System.Reflection.AssemblyProductAttribute("booksService")]
+[assembly: System.Reflection.AssemblyTitleAttribute("booksService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Generato dalla classe WriteCodeFragment di MSBuild.

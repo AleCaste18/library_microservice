@@ -1,5 +1,8 @@
-using BooksService.Configuration;
-using BooksService.Data;
+using booksService.Business;
+using booksService.Business.Interfaces;
+using booksService.Data;
+using booksService.Services;
+using booksService.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -15,7 +18,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BooksService
+namespace booksService
 {
     public class Startup
     {
@@ -29,16 +32,17 @@ namespace BooksService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DBContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("AppDbContext"));
-            });
+            services.AddDbContext<BookContext>(options => options
+                    .UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
 
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IBooksBusiness, BooksBusiness>();
+
+            services.AddScoped<IBookRepository, BooksRepository>();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "BooksService", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "booksService", Version = "v1" });
             });
         }
 
@@ -49,7 +53,7 @@ namespace BooksService
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BooksService v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "booksService v1"));
             }
 
             app.UseHttpsRedirection();

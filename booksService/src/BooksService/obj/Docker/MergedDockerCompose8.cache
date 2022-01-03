@@ -1,0 +1,96 @@
+services:
+  booksdb:
+    container_name: BooksDB
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: yourStrong(!)Password5
+    image: mcr.microsoft.com/mssql/server:2019-CU14-ubuntu-20.04
+    ports:
+    - mode: ingress
+      target: 1433
+      published: 1433
+      protocol: tcp
+    volumes:
+    - type: volume
+      source: sqlserver_data
+      target: /var/opt/mssql
+      volume: {}
+  booksservice:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: booksService
+      target: base
+    container_name: BooksAPP
+    depends_on:
+      booksdb:
+        condition: service_started
+    entrypoint:
+    - tail
+    - -f
+    - /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      NUGET_FALLBACK_PACKAGES: ""
+    image: booksservice:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/net5.0/booksService.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - mode: ingress
+      target: 80
+      published: 1819
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      published: 1818
+      protocol: tcp
+    tty: true
+    volumes:
+    - type: bind
+      source: C:\Users\lino-\Desktop\library_microservice\booksService\src\src library
+        v2\src\booksService
+      target: /app
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\lino-\vsdbg\vs2017u5
+      target: /remote_debugger
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\lino-\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\lino-\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\lino-\.nuget\packages\
+      target: /root/.nuget/packages
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\lino-\Desktop\library_microservice\booksService\src\src library
+        v2\src\booksService\.
+      target: /src
+      bind:
+        create_host_path: true
+volumes:
+  sqlserver_data:
+    name: sqlserver_data
+    driver: local

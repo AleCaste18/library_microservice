@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["BooksService.csproj", "."]
-RUN dotnet restore "BooksService.csproj"
+COPY ["booksService.csproj", "."]
+RUN dotnet restore "booksService.csproj"
 COPY . .
 WORKDIR "/src/"
-RUN dotnet build "BooksService.csproj" -c Release -o /app/build
+RUN dotnet build "booksService.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "BooksService.csproj" -c Release -o /app/publish
+RUN dotnet publish "booksService.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "BooksService.dll"]
+ENTRYPOINT ["dotnet", "booksService.dll"]
