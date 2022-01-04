@@ -11,7 +11,7 @@ services:
      - booksdb
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80  
+      - ASPNETCORE_URLS=http://+:80#https://+:443
     volumes:
       - ~/.aspnet/https:/root/.aspnet/https:ro
       - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
@@ -44,10 +44,10 @@ services:
     container_name: borrowingapi
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_URLS=http://+:80#https://+:443  
     ports:
-      - "3838:80"
-      - "3839:443"
+      - "3838:443"
+      - "3839:80"
     volumes:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
     depends_on:
@@ -58,6 +58,7 @@ services:
     container_name: customersAPP
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80#https://+:443
     volumes:
       - ~/.aspnet/https:/root/.aspnet/https:ro
       - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
