@@ -1,0 +1,75 @@
+version: '3.4'
+
+services:
+  booksservice:
+    image: "alecaste18/bookservice:1.0-SNAPSHOT"
+    container_name: "BooksAPP"
+    ports:
+      - "1818:443"
+      - "1819:80"
+    depends_on:
+     - booksdb
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80  
+    volumes:
+      - ~/.aspnet/https:/root/.aspnet/https:ro
+      - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+
+  booksdb:
+   image: "mcr.microsoft.com/mssql/server:2019-CU14-ubuntu-20.04"
+   container_name: "BooksDB"
+   environment:
+    - ACCEPT_EULA=Y
+    - SA_PASSWORD=yourStrong(!)Password5
+   ports:
+    - "1433:1433"
+   volumes:
+   - sqlserver_data:/var/opt/mssql
+  
+  borrowing-mongoDB:
+    image: mongo:latest
+    container_name: borrowingdb
+    environment:
+      #MONGO_INITDB_ROOT_USERNAME: root
+      #MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: borrowingdb
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data:/data/db
+
+  borrowing_service:
+    image: "alecaste18/borrowingservice:1.0-SNAPSHOT"
+    container_name: borrowingapi
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+    ports:
+      - "3838:80"
+      - "3839:443"
+    volumes:
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    depends_on:
+      - borrowing-mongoDB
+  
+  customersservice:
+    image: "alecaste18/customerservice:1.0-SNAPSHOT"
+    container_name: customersAPP
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - ~/.aspnet/https:/root/.aspnet/https:ro
+      - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+    ports:
+      - "2828:443"
+      - "2829:80"
+
+volumes:
+  sqlserver_data:
+    name: sqlserver_data
+    external: true
+
+  mongodb_data: 
+    name: mongodb_data
+    external: true 

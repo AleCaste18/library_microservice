@@ -33,4 +33,4 @@ services:
 volumes:
   sqlserver_data:
     name: sqlserver_data
-  
+    external: true
