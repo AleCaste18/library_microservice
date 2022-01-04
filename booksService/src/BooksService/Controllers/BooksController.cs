@@ -57,7 +57,7 @@ namespace booksService.Controllers
                 return BadRequest();
 
             await _booksBusiness.UpdateAsync(book);
-            return NoContent();
+            return Ok();
         }
 
 
