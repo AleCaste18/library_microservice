@@ -17,6 +17,10 @@ namespace booksService
     {
         public async static Task Main(string[] args)
         {
+            Log.Logger = new LoggerConfiguration()
+              //.WriteTo.Http("127.0.0.1:5000")       Logstash connection
+                .WriteTo.File("/app/log.txt")
+                .CreateLogger();
             var host = CreateHostBuilder(args).Build();
 
             using var scope = host.Services.CreateScope();
@@ -48,11 +52,11 @@ namespace booksService
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+            .UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                })
-                .UseSerilog((hostingContext, loggerConfiguration) => loggerConfiguration
-                        .ReadFrom.Configuration(hostingContext.Configuration));
+                });
+                
     }
 }

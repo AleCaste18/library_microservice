@@ -24,7 +24,6 @@ namespace booksService.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            // Just for demo of composite specifications
             var posts = await _booksBusiness.GetAllAsync();
             return Ok(posts);
         }
