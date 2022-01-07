@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   booksservice:
-    image: "alecaste18/bookservice:1.0-SNAPSHOT"
+    image: "alecaste18/bookservice:latest"
     container_name: "BooksAPP"
     ports:
       - "1818:443"
@@ -40,7 +40,7 @@ services:
       - mongodb_data:/data/db
 
   borrowing_service:
-    image: "alecaste18/borrowingservice:1.0-SNAPSHOT"
+    image: "alecaste18/borrowingservice:latest"
     container_name: borrowingapi
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -54,7 +54,7 @@ services:
       - borrowing-mongoDB
   
   customersservice:
-    image: "alecaste18/customerservice:1.0-SNAPSHOT"
+    image: "alecaste18/customerservice:latest"
     container_name: customersAPP
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
