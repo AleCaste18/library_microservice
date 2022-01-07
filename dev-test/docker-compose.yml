@@ -65,12 +65,15 @@ services:
     ports:
       - "2828:443"
       - "2829:80"
-
+  rabbitmq:
+   image: "rabbitmq:3.9-management"
+   container_name: "rabbitmq"
+   ports:
+    - "5672:5672"
+    - "15672:15672"
+    
 volumes:
-  sqlserver_data:
-    name: sqlserver_data
-    external: true
+  sqlserver_data: {}
 
-  mongodb_data: 
-    name: mongodb_data
-    external: true 
+  mongodb_data: {}
+   
