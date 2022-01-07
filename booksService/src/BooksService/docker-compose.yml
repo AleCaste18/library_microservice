@@ -31,5 +31,4 @@ services:
    - sqlserver_data:/var/opt/mssql
 
 volumes:
-  sqlserver_data:
-    name: sqlserver_data
+  sqlserver_data: {}

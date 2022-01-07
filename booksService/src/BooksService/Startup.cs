@@ -1,3 +1,6 @@
+using AspNetCore.Kafka;
+using Confluent.Kafka;
+using Confluent.SchemaRegistry;
 using booksService.Business;
 using booksService.Business.Interfaces;
 using booksService.Data;
@@ -44,6 +47,7 @@ namespace booksService
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "booksService", Version = "v1" });
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

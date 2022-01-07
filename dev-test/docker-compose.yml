@@ -67,10 +67,5 @@ services:
       - "2829:80"
 
 volumes:
-  sqlserver_data:
-    name: sqlserver_data
-    external: true
-
-  mongodb_data: 
-    name: mongodb_data
-    external: true 
+  sqlserver_data: {}
+  mongodb_data: {} 
