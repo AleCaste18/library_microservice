@@ -17,8 +17,8 @@ namespace customersServiceTest
             _customers = new List<Customer>() 
             {
                 new Customer() { Id = "602d2149e773f2a3990b47f6", Name = "Carlo", Surname = "Rossi" , Address = "Via Roma 10, Torino 10100", Card = 19191919 }, 
-                new Customer() { Id = "602d2149e773f2a3990b47f7", Name = "Martina", Surname = "Rossi" , Address = "Via Roma 10, Torino 10100", Card = 20202020 },
-                new Customer() { Id = "602d2149e773f2a3990b47f8", Name = "Giulia", Surname = "Rossi" , Address = "Via Roma 10, Torino 10100", Card = 21212121 }
+                new Customer() { Id = "602d2149e773f2a3990b47f7", Name = "Martina", Surname = "Bianchi" , Address = "Via Roma 10, Torino 10100", Card = 20202020 },
+                new Customer() { Id = "602d2149e773f2a3990b47f8", Name = "Giulia", Surname = "Verdi" , Address = "Via Roma 10, Torino 10100", Card = 21212121 }
             }; 
         }
 

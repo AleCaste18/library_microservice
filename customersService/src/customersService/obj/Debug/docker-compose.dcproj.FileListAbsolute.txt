@@ -38,6 +38,4 @@ C:\Users\lino-\Desktop\GIT\library_microservice\customersService\src\customersSe
 C:\Users\lino-\Desktop\GIT\library_microservice\customersService\src\customersService\bin\Debug\Serilog.AspNetCore.dll
 C:\Users\lino-\Desktop\GIT\library_microservice\customersService\src\customersService\bin\Debug\Serilog.Extensions.Logging.dll
 C:\Users\lino-\Desktop\GIT\library_microservice\customersService\src\customersService\bin\Debug\Serilog.Extensions.Hosting.dll
-C:\Users\lino-\Desktop\GIT\library_microservice\customersService\src\customersService\bin\Debug\Serilog.Sinks.Seq.dll
-C:\Users\lino-\Desktop\GIT\library_microservice\customersService\src\customersService\bin\Debug\Serilog.Sinks.PeriodicBatching.dll
-C:\Users\lino-\Desktop\GIT\library_microservice\customersService\src\customersService\bin\Debug\Serilog.Formatting.Compact.dll
+C:\Users\lino-\Desktop\GIT\library_microservice\customersService\src\customersService\bin\Debug\Serilog.Sinks.File.dll

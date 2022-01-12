@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args); //Iniezione di dipendenze (ser
 
 
 Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Information()
+    .MinimumLevel.Error()
     .Enrich.FromLogContext()
     //.WriteTo.Http("127.0.0.1:5000")       Logstash connection
     //.WriteTo.Seq("http://host.docker.internal:5341")   
@@ -18,6 +18,7 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 
 builder.Host.UseSerilog();
+builder.Services.AddLogging(x => { x.ClearProviders(); x.AddSerilog(dispose: true); });
 
 
 // Add services to the container  ->  codice per configurare o registrare i servizi (WebApplication.Services)

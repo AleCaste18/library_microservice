@@ -161,3 +161,21 @@
 2022-01-10 18:12:48.330 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:2829/swagger/index.html - - - 200 - text/html;charset=utf-8 91.3869ms
 2022-01-10 18:12:48.506 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:2829/swagger/v1/swagger.json - -
 2022-01-10 18:12:48.617 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:2829/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 111.3501ms
+2022-01-11 13:57:24.568 +00:00 [INF] Now listening on: http://[::]:80
+2022-01-11 13:57:24.584 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-11 13:57:24.585 +00:00 [INF] Hosting environment: Development
+2022-01-11 13:57:24.585 +00:00 [INF] Content root path: /app/
+2022-01-11 13:57:27.054 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:2829/swagger/index.html - -
+2022-01-11 13:57:27.153 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:2829/swagger/index.html - - - 200 - text/html;charset=utf-8 101.0140ms
+2022-01-11 13:57:27.341 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:2829/swagger/v1/swagger.json - -
+2022-01-11 13:57:27.506 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:2829/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 164.9201ms
+2022-01-11 13:57:31.477 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:2829/api/Customers - -
+2022-01-11 13:57:31.498 +00:00 [INF] Executing endpoint 'customersService.Controllers.CustomersController.GetCustomers (customersService)'
+2022-01-11 13:57:31.515 +00:00 [INF] Route matched with {action = "GetCustomers", controller = "Customers"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[customersService.Entities.Customer]]] GetCustomers() on controller customersService.Controllers.CustomersController (customersService).
+2022-01-11 13:57:32.873 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[customersService.Entities.Customer, customersService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-01-11 13:57:32.881 +00:00 [INF] Executed action customersService.Controllers.CustomersController.GetCustomers (customersService) in 1362.0453ms
+2022-01-11 13:57:32.882 +00:00 [INF] Executed endpoint 'customersService.Controllers.CustomersController.GetCustomers (customersService)'
+2022-01-11 13:57:32.884 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:2829/api/Customers - - - 200 - application/json;+charset=utf-8 1406.7970ms
+2022-01-11 13:57:39.595 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:2829/api/Customers/4 - -
+2022-01-11 13:57:39.599 +00:00 [INF] HTTP GET /api/Customers/4 responded 404 in 0.4501 ms
+2022-01-11 13:57:39.600 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:2829/api/Customers/4 - - - 404 0 - 5.1252ms

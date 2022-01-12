@@ -22,7 +22,7 @@ namespace customersServiceTest
         }
 
         [Fact]
-        public async Task GetCustomersTest()
+        public async Task GetCustomers()
         {
             //Arrange
 
@@ -37,55 +37,37 @@ namespace customersServiceTest
             Assert.Equal(3, listCustomers.Count);
         }
 
-        [Theory]
-        [InlineData("602d2149e773f2a3990b47f0")] //Id doesn't exist
-        public async Task GetCustomerByFakeId(string id)
+        [Fact]
+        public async Task GetCustomerByID() 
         {
             //Arrange
-            var validId = id;
+            var idCustomer = "602d2149e773f2a3990b47f6";
 
+            //Act
+            var okResult = await _controller.GetCustomerById(idCustomer);
 
-            //Act        
-            var okResult = await _controller.GetCustomerById(id);
-
-            //Assert           
+            //Assert
             Assert.IsType<OkObjectResult>(okResult.Result);
 
-            //Check value of result for the ok object result
-            var item = okResult.Result as OkObjectResult;
-
-            //Expect to return a single customer
-            Assert.IsType<Customer>(item.Value);
-
-            //Check the value
-            var customerItem = item.Value as Customer;
-            Assert.Equal(validId, customerItem.Id);
-            Assert.Equal("Carlo", customerItem.Name);
         }
 
-        [Theory]
-        [InlineData("602d2149e773f2a3990b47f6")] //Id exists
-        public async Task GetCustomerById(string id)
+        [Fact]
+        public async Task CreateCustomer() 
         {
             //Arrange
-            var validId = id;
+            var customer = new Customer();
+            customer.Id = "602d2149e773f2a3990b47fh";
+            customer.Name = "Nome";
+            customer.Surname = "Cognome";
+            customer.Address = "Indirizzo";
+            customer.Card = 25252525;
 
-            //Act            
-            var okResult = await _controller.GetCustomerById(id);
+            //Act
+            var createdResult = await _controller.CreateCustomer(customer);
 
-            //Assert            
-            Assert.IsType<OkObjectResult>(okResult.Result);
+            //Assert
+            Assert.IsAssignableFrom<CreatedAtRouteResult>(createdResult.Result);
 
-            //Check value of result for the ok object result
-            var item = okResult.Result as OkObjectResult;
-
-            //Expect to return a single customer
-            Assert.IsType<Customer>(item.Value);
-
-            //Check the value
-            var customerItem = item.Value as Customer;
-            Assert.Equal(validId, customerItem.Id);
-            Assert.Equal("Carlo", customerItem.Name);
         }
     }
 }
