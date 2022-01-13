@@ -41,5 +41,5 @@ jobs:
           context: ./booksService/src/BooksService
           file: ./booksService/src/BooksService
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/bookservice:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/bookservice:latest
         
