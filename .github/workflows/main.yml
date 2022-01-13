@@ -39,7 +39,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./booksService/src/BooksService
-          file: ./booksService/src/BooksService
+          file: ./booksService/src/BooksService/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/bookservice:latest
         
