@@ -1,6 +1,6 @@
 # Book Service
 
-![schema](library_microservice/Services/Book/img/books.png)
+![alt text](library_microservice/Services/Book/img/books.png)
 
 ### Map components
 
