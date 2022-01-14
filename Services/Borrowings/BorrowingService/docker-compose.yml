@@ -23,12 +23,12 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
     ports:
-      - "3838:80"
-      - "3839:443"
+      - "8002:80"
+      - "8003:443"
     volumes:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
     depends_on:
-      - borrowing_mongoDB
+      - borrowing-mongoDB
 
 
 

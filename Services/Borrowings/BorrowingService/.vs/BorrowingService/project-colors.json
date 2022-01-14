@@ -10,7 +10,12 @@
       "ProjectGuid": "c72f0b5e-3224-46e0-9811-28214f2f6dad",
       "DisplayName": "docker-compose",
       "ColorIndex": 1
+    },
+    "bb5fb7ee-b7b9-4c7e-9fd3-56fced225f0a": {
+      "ProjectGuid": "bb5fb7ee-b7b9-4c7e-9fd3-56fced225f0a",
+      "DisplayName": "BorrowingServiceTest",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 3
 }

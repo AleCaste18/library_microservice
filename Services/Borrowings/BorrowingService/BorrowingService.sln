@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BorrowingService", "BorrowingService.csproj", "{A15A29B8-8F62-4C23-A332-00D2C602BAD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BorrowingService", "BorrowingService.csproj", "{A15A29B8-8F62-4C23-A332-00D2C602BAD4}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{C72F0B5E-3224-46E0-9811-28214F2F6DAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BorrowingServiceTest", "..\BorrowingServiceTest\BorrowingServiceTest.csproj", "{BB5FB7EE-B7B9-4C7E-9FD3-56FCED225F0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C72F0B5E-3224-46E0-9811-28214F2F6DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C72F0B5E-3224-46E0-9811-28214F2F6DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C72F0B5E-3224-46E0-9811-28214F2F6DAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB5FB7EE-B7B9-4C7E-9FD3-56FCED225F0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB5FB7EE-B7B9-4C7E-9FD3-56FCED225F0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB5FB7EE-B7B9-4C7E-9FD3-56FCED225F0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB5FB7EE-B7B9-4C7E-9FD3-56FCED225F0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
