@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c69af2f2-57ed-402f-899b-42ce26f021b7": {
+      "ProjectGuid": "c69af2f2-57ed-402f-899b-42ce26f021b7",
+      "DisplayName": "Book.API",
+      "ColorIndex": 0
+    },
+    "341484b2-5fc6-4960-9789-85787a2ac0e9": {
+      "ProjectGuid": "341484b2-5fc6-4960-9789-85787a2ac0e9",
+      "DisplayName": "docker-compose",
+      "ColorIndex": 1
+    },
+    "b9bb799b-bd8b-4516-9b8a-f56008ecdae8": {
+      "ProjectGuid": "b9bb799b-bd8b-4516-9b8a-f56008ecdae8",
+      "DisplayName": "Book.UnitTests",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
