@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY "Book.API.csproj", "."
+COPY Book.API.csproj .
 RUN dotnet restore "Book.API.csproj"
 COPY . .
 WORKDIR "/src/"
