@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using Serilog.Sinks.Elasticsearch;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,11 @@ namespace Book.API
         public async static Task Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
-                //.WriteTo.Http("127.0.0.1:5000")       Logstash connection
+                .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri("http://host.docker.internal:9200"))
+                {
+                    AutoRegisterTemplate = true,
+                    AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.ESv6
+                })
                 .WriteTo.File("/app/log.txt")
                 .MinimumLevel.Information()
                 .CreateLogger();
