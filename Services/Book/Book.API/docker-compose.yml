@@ -6,7 +6,6 @@ services:
     container_name: "BooksAPP"
     ports:
       - "8000:80"
-      - "8001:443"
     build:
       context: .
       dockerfile: Dockerfile
@@ -14,7 +13,7 @@ services:
      - booksdb
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80  
+      - ASPNETCORE_URLS=http://+:80  
     volumes:
       - ~/.aspnet/https:/root/.aspnet/https:ro
       - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro

@@ -19,13 +19,14 @@ namespace Book.API
         public async static Task Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .MinimumLevel.Information()
                 .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri("http://host.docker.internal:9200"))
                 {
                     AutoRegisterTemplate = true,
                     AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.ESv6
                 })
                 .WriteTo.File("/app/log.txt")
-                .MinimumLevel.Information()
                 .CreateLogger();
             var host = CreateHostBuilder(args).Build();
 
