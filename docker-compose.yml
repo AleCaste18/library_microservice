@@ -76,13 +76,13 @@ services:
   #
   elasticsearch:
     build:
-      context: elasticsearch/
+      context: elk/elasticsearch/
       args:
         ELK_VERSION: $ELK_VERSION
     container_name: elasticsearch
     volumes:
       - type: bind
-        source: ./elasticsearch/config/elasticsearch.yml
+        source: ./elk/elasticsearch/config/elasticsearch.yml
         target: /usr/share/elasticsearch/config/elasticsearch.yml
         read_only: true
       - type: volume
@@ -100,17 +100,17 @@ services:
 
   logstash:
     build:
-      context: logstash/
+      context: elk/logstash/
       args:
         ELK_VERSION: $ELK_VERSION
     container_name: logstash
     volumes:
       - type: bind
-        source: ./logstash/config/logstash.yml
+        source: ./elk/logstash/config/logstash.yml
         target: /usr/share/logstash/config/logstash.yml
         read_only: true
       - type: bind
-        source: ./logstash/pipeline
+        source: ./elk/logstash/pipeline
         target: /usr/share/logstash/pipeline
         read_only: true
     ports:
@@ -125,13 +125,13 @@ services:
 
   kibana:
     build:
-      context: kibana/
+      context: elk/kibana/
       args:
         ELK_VERSION: $ELK_VERSION
     container_name: kibana
     volumes:
       - type: bind
-        source: ./kibana/config/kibana.yml
+        source: ./elk/kibana/config/kibana.yml
         target: /usr/share/kibana/config/kibana.yml
         read_only: true
     ports:
@@ -141,13 +141,13 @@ services:
 
   filebeat:
     build:
-      context: filebeat/
+      context: elk/filebeat/
       args:
         ELK_VERSION: $ELK_VERSION
     container_name: filebeat
     volumes:
       - type: bind
-        source: ./filebeat/config/filebeat.yml
+        source: ./elk/filebeat/config/filebeat.yml
         target: /usr/share/filebeat/filebeat.yml
         read_only: true
       - filebeat:/usr/share/filebeat/data
