@@ -1,5 +1,5 @@
 
-name: fake_CD/CI
+name: demo_CD/CI
 
 on:
   push:
