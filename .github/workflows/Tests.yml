@@ -9,5 +9,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2.1.0
       - name: change folder and run test
-        working-directory: ../../Services/Customers/customersServiceTest
+        working-directory: library_microservice/Services/Customers/customersServiceTest
         run: dotnet test customersServiceTest.csproj
