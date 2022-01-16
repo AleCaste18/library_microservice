@@ -8,4 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.1.0
-      - run: dotnet test ../../Services/Customers/customersServiceTest/customersServiceTest.csproj
+      - working-directory: ../../Services/Customers/customersServiceTest/customersServiceTest.csproj
+      - run: dotnet test 
