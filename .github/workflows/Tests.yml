@@ -8,5 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.1.0
-      - working-directory: ../../Services/Customers/customersServiceTest/customersServiceTest.csproj
-      - run: dotnet test 
+      - name: change folder and run test
+        working-directory: ../../Services/Customers/customersServiceTest
+        run: dotnet test customersServiceTest.csproj
