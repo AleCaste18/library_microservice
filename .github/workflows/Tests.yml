@@ -10,5 +10,5 @@ jobs:
       - uses: actions/checkout@v2.1.0
       - name: Test
         run: |
-          cd Service/
+          cd Service/Customers/customersServiceTest
           dotnet test 
