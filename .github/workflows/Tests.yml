@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.1.0
-      - name: change folder and run test
-        working-directory: library_microservice/Services/Customers/customersServiceTest
-        run: dotnet test customersServiceTest.csproj
+      - name: Test
+        run: |
+          cd Service/
+          dotnet test 
