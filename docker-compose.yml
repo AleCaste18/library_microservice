@@ -69,8 +69,7 @@ services:
    ports:
     - "5672:5672"
     - "15672:15672"
-   networks:  
-    - dev 
+
 
   elasticsearch:  
    container_name: elasticsearch  
@@ -84,8 +83,7 @@ services:
     - xpack.watcher.enabled=false  
     - "ES_JAVA_OPTS=-Xms512m -Xmx512m"  
     - discovery.type=single-node  
-   networks:  
-    - dev   
+ 
   
   kibana:  
    container_name: kibana  
@@ -96,15 +94,8 @@ services:
     - elasticsearch  
    environment:  
     - ELASTICSEARCH_URL=http://localhost:9200  
-   networks:  
-    - dev
 
-
-networks:  
-  dev:  
-    driver: bridge
-
-      
+     
 volumes:
   sqlserver_data: {}
   mongodb_data: {}
