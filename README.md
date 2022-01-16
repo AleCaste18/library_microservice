@@ -1,5 +1,7 @@
 ### Library application
 
+![alt text](./img/schema.png)
+
 - Book service: <http://localhost:8000/swagger/index.html>
 - Borrowing service: <http://localhost:8001/swagger/index.html>
 - Customer service: <http://localhost:8002/swagger/index.html>
