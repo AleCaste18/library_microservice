@@ -38,7 +38,7 @@ services:
     volumes:
       - mongodb_data:/data/db
 
-  borrowing_service:
+  borrowingservice:
     image: "alecaste18/borrowingservice:latest"
     container_name: borrowingapi
     environment:
@@ -99,5 +99,5 @@ services:
 volumes:
   sqlserver_data: {}
   mongodb_data: {}
-  elasticsearch-data: 
+  elasticsearch-data: {}
    
