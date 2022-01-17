@@ -28,7 +28,7 @@ namespace Book.API.Controllers
         {
             // TOOO: Reuse and close connections and channel, etc, 
             // Configurazione RabbitMQ per ambiente di test con docker
-            var factory = new ConnectionFactory() { HostName = "host.docker.internal",
+            var factory = new ConnectionFactory() { HostName = "rabbitmq",
                 Port = 5672, 
                 UserName = "guest", 
                 Password = "guest", 

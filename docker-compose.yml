@@ -26,7 +26,7 @@ services:
    volumes:
    - sqlserver_data:/var/opt/mssql
   
-  borrowing-mongoDB:
+  borrowingmongoDB:
     image: mongo:latest
     container_name: borrowingdb
     environment:
@@ -49,7 +49,7 @@ services:
     volumes:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
     depends_on:
-      - borrowing-mongoDB
+      - borrowingmongoDB
   
   customersservice:
     image: "alecaste18/customerservice:latest"

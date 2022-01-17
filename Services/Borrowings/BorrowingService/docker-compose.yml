@@ -1,7 +1,7 @@
 version: '3.4'
 
 services:
-  borrowing_service:
+  borrowingservice:
     image: ${DOCKER_REGISTRY-}borrowingservice
     container_name: borrowingapi
     build:
