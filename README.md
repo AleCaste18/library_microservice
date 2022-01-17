@@ -7,5 +7,5 @@
 - Customer service: <http://localhost:8002/swagger/index.html>
     - GraphQL Endopoint: <http://localhost:8002/api/graphql>
 - RabbitMQ management: <http://localhost:15672/>
-- Kibana + Elastic GUI: <http://localhost:5601/app/home>
+- Kibana GUI: <http://localhost:5601/app/home>
 
