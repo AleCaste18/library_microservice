@@ -1,0 +1,103 @@
+version: '3.4'
+
+services:
+  booksservice:
+    image: "alecaste18/bookservice:latest"
+    container_name: "BooksAPP"
+    ports:
+      - "8000:80"
+    depends_on:
+     - booksdb
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    volumes:
+      - ~/.aspnet/https:/root/.aspnet/https:ro
+      - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+
+  booksdb:
+   image: "mcr.microsoft.com/mssql/server:2019-CU14-ubuntu-20.04"
+   container_name: "BooksDB"
+   environment:
+    - ACCEPT_EULA=Y
+    - SA_PASSWORD=yourStrong(!)Password5
+   ports:
+    - "1433:1433"
+   volumes:
+   - sqlserver_data:/var/opt/mssql
+  
+  borrowing-mongoDB:
+    image: mongo:latest
+    container_name: borrowingdb
+    environment:
+      #MONGO_INITDB_ROOT_USERNAME: root
+      #MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: borrowingdb
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data:/data/db
+
+  borrowing_service:
+    image: "alecaste18/borrowingservice:latest"
+    container_name: borrowingapi
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "8001:80"
+    volumes:
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    depends_on:
+      - borrowing-mongoDB
+  
+  customersservice:
+    image: "alecaste18/customerservice:latest"
+    container_name: customersAPP
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    volumes:
+      - ~/.aspnet/https:/root/.aspnet/https:ro
+      - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+    ports:
+      - "8002:80"
+
+  rabbitmq:
+   image: "rabbitmq:3.9-management"
+   container_name: "rabbitmq"
+   ports:
+    - "5672:5672"
+    - "15672:15672"
+
+
+  elasticsearch:  
+   container_name: elasticsearch  
+   image: docker.elastic.co/elasticsearch/elasticsearch:7.9.1  
+   ports:  
+    - 9200:9200  
+   volumes:  
+    - elasticsearch-data:/usr/share/elasticsearch/data  
+   environment:  
+    - xpack.monitoring.enabled=true  
+    - xpack.watcher.enabled=false  
+    - "ES_JAVA_OPTS=-Xms512m -Xmx512m"  
+    - discovery.type=single-node  
+ 
+  
+  kibana:  
+   container_name: kibana  
+   image: docker.elastic.co/kibana/kibana:7.9.1  
+   ports:  
+    - 5601:5601  
+   depends_on:  
+    - elasticsearch  
+   environment:  
+    - ELASTICSEARCH_URL=http://localhost:9200  
+
+     
+volumes:
+  sqlserver_data: {}
+  mongodb_data: {}
+  elasticsearch-data: 
+   
