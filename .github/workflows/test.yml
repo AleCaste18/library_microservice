@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-version: ['5.0.x', '6.0.x']
+        dotnet-version: ['5.0.x']
 
     steps:
       - uses: actions/checkout@v2
@@ -16,5 +16,7 @@ jobs:
         uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Show dir
+        run: pwd
       - name: Test
         run: dotnet test Services\Customers\customersServiceTest\customersServiceTest.csproj
