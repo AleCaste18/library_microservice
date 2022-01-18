@@ -3,7 +3,7 @@ name: dotnet package
 on: [push]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
     strategy:
@@ -21,4 +21,4 @@ jobs:
       - name: Show ls -l 1
         run: ls -l
       - name: Test
-        run: dotnet test .\Services\Customers\customersServiceTest\customersServiceTest.csproj
+        run: dotnet test .Services\Customers\customersServiceTest\customersServiceTest
