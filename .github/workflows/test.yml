@@ -21,4 +21,4 @@ jobs:
       - name: Show ls -l 1
         run: ls -l
       - name: Test
-        run: dotnet test .Services\Customers\customersServiceTest\customersServiceTest
+        run: dotnet test Services\Customers\customersServiceTest\customersServiceTest
