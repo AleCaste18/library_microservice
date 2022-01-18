@@ -1,24 +1,28 @@
-name: dotnet package
+name: Build And Push Nuget Package
 
-on: [push]
+on:
+  push:
+    branches: [ master ]
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        dotnet-version: ['5.0.x']
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
-        uses: actions/setup-dotnet@v1.7.2
-        with:
-          dotnet-version: ${{ matrix.dotnet-version }}
-      - name: Show dir 1
-        run: pwd
-      - name: Show ls -l 1
-        run: ls -l
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core Build Env
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0
+    - name: Restore
+      run: |
+        pwd
+        ls
+        stat -c "%s"  Services/Customers/customersService/customersServiceTest/customersServiceTest.csproj
+        dotnet restore Services/Customers/customersService/customersService.sln
+    - name: UT
+      run: dotnet test
+
+
       - name: Test
-        run: dotnet test Services/Customers/customersServiceTest/customersServiceTest
+        run: dotnet test Services/Customers/customersService/customersService.sln
