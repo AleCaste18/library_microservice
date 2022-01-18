@@ -19,6 +19,6 @@ jobs:
       - name: Show dir
         run: pwd
       - name: Move dir
-        run: cd Services
+        run: cd Service5
       - name: Test
         run: dotnet test Services\Customers\customersServiceTest\customersServiceTest.csproj
