@@ -18,15 +18,7 @@ jobs:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Show dir 1
         run: pwd
-      - name: Move dir 1
-        run: cd Services
       - name: Show ls -l 1
         run: ls -l
-      - name: Show dir 2
-        run: pwd
-      - name: Move dir 2
-        run: cd Services
-      - name: Show ls -l 2
-        run: ls -l  
       - name: Test
-        run: dotnet test customersServiceTest.csproj
+        run: dotnet test .\Services\Customers\customersServiceTest\customersServiceTest.csproj
