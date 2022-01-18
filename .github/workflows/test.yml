@@ -19,7 +19,7 @@ jobs:
       - name: Show dir
         run: pwd
       - name: Move dir
-        run: cd Services\Customers\customersServiceTest
+        run: cd Services
       - name: Show ls -l
         run: ls -l
       - name: Test
